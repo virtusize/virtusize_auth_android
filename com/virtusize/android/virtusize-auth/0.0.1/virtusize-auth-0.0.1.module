@@ -1,0 +1,125 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.virtusize.android",
+    "module": "virtusize-auth",
+    "version": "0.0.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.0.2"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-jdk8",
+          "version": {
+            "requires": "1.5.31"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "virtusize-auth-0.0.1.aar",
+          "url": "virtusize-auth-0.0.1.aar",
+          "size": 55196,
+          "sha512": "1122d00e781494b3802cf71e70ab9a0d3d5b78b55be82a25d40fac443463a9d153955f32746ad0d09a5b13ac8d62c9d2f059bddd193c8702d534346a2e30bdda",
+          "sha256": "9cfbb226b07d3242b09ffdd2db5846822dcc50f8975eee35a1d0f2aede9afbaf",
+          "sha1": "a2503b2a7ae4fa6992a2c3ed67164410130e7eb9",
+          "md5": "e992ff94d583cd105c7b02af15a8355b"
+        }
+      ]
+    },
+    {
+      "name": "releaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-jdk8",
+          "version": {
+            "requires": "1.5.31"
+          }
+        },
+        {
+          "group": "com.virtusize.android",
+          "module": "virtusize-core",
+          "version": {
+            "requires": "2.4.2"
+          }
+        },
+        {
+          "group": "androidx.appcompat",
+          "module": "appcompat",
+          "version": {
+            "requires": "1.3.1"
+          }
+        },
+        {
+          "group": "androidx.browser",
+          "module": "browser",
+          "version": {
+            "requires": "1.3.0"
+          }
+        },
+        {
+          "group": "androidx.core",
+          "module": "core-ktx",
+          "version": {
+            "requires": "1.6.0"
+          }
+        },
+        {
+          "group": "androidx.lifecycle",
+          "module": "lifecycle-livedata-ktx",
+          "version": {
+            "requires": "2.3.1"
+          }
+        },
+        {
+          "group": "androidx.lifecycle",
+          "module": "lifecycle-viewmodel-ktx",
+          "version": {
+            "requires": "2.3.1"
+          }
+        },
+        {
+          "group": "com.google.android.material",
+          "module": "material",
+          "version": {
+            "requires": "1.4.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "virtusize-auth-0.0.1.aar",
+          "url": "virtusize-auth-0.0.1.aar",
+          "size": 55196,
+          "sha512": "1122d00e781494b3802cf71e70ab9a0d3d5b78b55be82a25d40fac443463a9d153955f32746ad0d09a5b13ac8d62c9d2f059bddd193c8702d534346a2e30bdda",
+          "sha256": "9cfbb226b07d3242b09ffdd2db5846822dcc50f8975eee35a1d0f2aede9afbaf",
+          "sha1": "a2503b2a7ae4fa6992a2c3ed67164410130e7eb9",
+          "md5": "e992ff94d583cd105c7b02af15a8355b"
+        }
+      ]
+    }
+  ]
+}
