@@ -2,7 +2,7 @@ Virtusize Auth SDK for Android
 
 ## Description
 
-The Virtusize Auth SDK for Android is a closed-source library that handles the SNS authentication process for our [Virtusize Android Integration](https://github.com/virtusize/integration_android.
+The Virtusize Auth SDK for Android is a closed-source library that handles the SNS authentication process for our [Virtusize Android Integration](https://github.com/virtusize/integration_android).
 
 ## Getting Started
 
