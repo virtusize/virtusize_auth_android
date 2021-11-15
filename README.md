@@ -22,6 +22,6 @@ allprojects {
 
 ```groovy
 dependencies {
-    implementation "com.virtusize.android:virtusize_auth_android:0.0.1"
+    implementation "com.virtusize.android:virtusize_auth_android:0.0.2"
 }
 ```
