@@ -81,6 +81,8 @@ Edit your `AndroidManifest.xml` file to include an intent filter and a `<data>` 
 
 ## Enable Virtusize SNS Login for your WebView app
 
+Following either of the following methods to enable Virtusize SNS login
+
 ### Method 1: Use the VirtusizeWebView
 
 ##### **Step 1: Replace your `WebView` with `VirtusizeWebView`**
@@ -152,7 +154,8 @@ and
   }
   ```
 
-  
+
+### or
 
 ### Method 2: Use WebView
 
@@ -197,12 +200,12 @@ override fun onCreate(savedInstanceState: Bundle?) {
             view.requestFocusNodeHref(message)
             val url = message.data.getString("url")
             val title = message.data.getString("title")
-            if (resultMsg.obj != null && resultMsg.obj is WebView.WebViewTransport && VirtusizeAuthUtils.isLinkFromVirtusize(url, title)) {
+            if (resultMsg.obj != null && resultMsg.obj is WebView.WebViewTransport && VirtusizeURLCheck.isLinkFromVirtusize(url, title)) {
                 val popupWebView = WebView(view.context)
                 popupWebView.settings.javaScriptEnabled = true
                 popupWebView.webViewClient = object : WebViewClient() {
                     override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
-                        if (VirtusizeAuthUtils.isExternalLinkFromVirtusize(url)) {
+                        if (VirtusizeURLCheck.isExternalLinkFromVirtusize(url)) {
                             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
                             try {
                                 context.startActivity(intent)
