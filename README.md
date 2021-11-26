@@ -1,6 +1,4 @@
-# Virtusize Auth SDK
-
-Virtusize Auth SDK for Android
+# Virtusize Auth SDK for Android
 
 ## Description
 
