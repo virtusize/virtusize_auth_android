@@ -22,7 +22,7 @@ The Virtusize Auth SDK for Android is a closed-source library that handles the S
 
 ### 1. Installation
 
-1. In your root build.gradle file, edit the `repositories` section to include the following:
+1. In your *root* build.gradle file, edit the `repositories` section to include the following:
 
 ```groovy
 allprojects {
@@ -34,7 +34,7 @@ allprojects {
 }
 ```
 
-2. In your root build.gradle file, edit the `dependencies` section to include the following:
+2. In your *app* build.gradle file, edit the `dependencies` section to include the following:
 
 ```groovy
 dependencies {
@@ -44,9 +44,9 @@ dependencies {
 
 
 
-### 2. Create a Custom URL Scheme for Virtusize SNS Autn
+### 2. Create a Custom URL Scheme for Virtusize SNS Auth
 
-The SNS authentication flow requires opening a Chrome Custom Tab, which will load a web page for the user to login with their SNS account. A custom URL scheme must be defined to return the login response to your app from a Chrome Custom Tab.
+The SNS authentication flow requires opening a Chrome Custom Tab, which will load a web page for the user to login with their SNS account. In order to return the login response from a Chrome Custom Tab to your app, a custom URL scheme must be defined inside the manifest.
 
 Edit your `AndroidManifest.xml` file to include an intent filter and a `<data>` tag for the custom URL scheme.
 
@@ -76,18 +76,20 @@ Edit your `AndroidManifest.xml` file to include an intent filter and a `<data>` 
 **❗IMPORTANT**
 
 1. The URL host has to be `sns-auth`
-2. The URL scheme must begin with your app's package ID (com.your-company.your-app) and **end with .virtusize**, and the scheme which you define must use all **lowercase** letters.
+2. The URL scheme must begin with your app's package ID (com.your-company.your-app) and **end with .virtusize**
+3. The scheme which you define must use all **lowercase** letters
+
 
 
 ## Enable Virtusize SNS Login for your WebView app
 
-Following either of the following methods to enable Virtusize SNS login
+Use either of the following methods to enable Virtusize SNS login
 
 ### Method 1: Use the VirtusizeWebView
 
 ##### **Step 1: Replace your `WebView` with `VirtusizeWebView`**
 
-To let users to sign up or log in with the web version of Virtusize integration in your webview, please replace your `WebView` with **`VirtusizeWebView`** in your Kotlin or Java file and XML file to fix and enable SNS login in Virtusize.
+To enable users to sign up or log in with the web version of Virtusize integration in your webview, please replace your `WebView` with **`VirtusizeWebView`** in your Kotlin or Java file and XML file to fix and enable SNS login in Virtusize.
 
 - Kotlin/Java
 
@@ -113,12 +115,12 @@ and
       android:layout_height="match_parent" />
   ```
 
-##### Step 2: Set the Virtusize SNS auth activity result luancher to `VirtusizeWebView`
+##### Step 2: Set the Virtusize SNS auth activity result launcher to `VirtusizeWebView`
 
 - Kotlin
 
   ```kotlin
-  // Register the Virtusize SNS auth activity result luancher
+  // Register the Virtusize SNS auth activity result launcher
   private val virtusizeSNSAuthLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
       // Handle the SNS auth result of the VirtusizeAuthActivity by passing the webview and the result to the `VirtusizeAuth.handleVirtusizeSNSAuthResult` function                                                                                                
       VirtusizeAuth.handleVirtusizeSNSAuthResult(webView, result.resultCode, result.data)
@@ -136,7 +138,7 @@ and
 - Java
 
   ```java
-  // Register the Virtusize SNS auth activity result luancher
+  // Register the Virtusize SNS auth activity result launcher
   private ActivityResultLauncher<Intent> mLauncher = 
       registerForActivityResult(
           new ActivityResultContracts.StartActivityForResult(), 
@@ -159,7 +161,7 @@ and
 
 ### Method 2: Use WebView
 
-##### Step 1: Make sure your WebView enable the following settings:
+##### Step 1: Make sure your WebView enables the following settings:
 
 ```kotlin
 webView.settings.javaScriptEnabled = true
@@ -171,7 +173,7 @@ webView.settings.setSupportMultipleWindows(true)
 ##### Step 2: Add the following code
 
 ```kotlin
-// Register the Virtusize SNS auth activity result luancher
+// Register the Virtusize SNS auth activity result launcher
 private val virtusizeSNSAuthLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
     VirtusizeAuth.handleVirtusizeSNSAuthResult(webView, result.resultCode, result.data)
 }
@@ -235,3 +237,4 @@ override fun onCreate(savedInstanceState: Bundle?) {
     }
 }
 ```
+
