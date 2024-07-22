@@ -10,7 +10,7 @@ The Virtusize Auth SDK for Android is a closed-source library that handles the S
 
 - minSdkVersion >= 21
 
-- compileSdkVersion >= 30
+- compileSdkVersion >= 34
 
 - Setup in AppCompatActivity
 
@@ -36,7 +36,7 @@ allprojects {
 
 ```groovy
 dependencies {
-    implementation "com.virtusize.android:virtusize-auth:1.0.3"
+    implementation "com.virtusize.android:virtusize-auth:1.0.4"
 }
 ```
 
