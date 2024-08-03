@@ -1,0 +1,138 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.virtusize.android",
+    "module": "virtusize-auth",
+    "version": "1.0.5",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.7"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-jdk8",
+          "version": {
+            "requires": "1.8.22"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "virtusize-auth-1.0.5.aar",
+          "url": "virtusize-auth-1.0.5.aar",
+          "size": 41185,
+          "sha512": "4bd532056163fb43e9031209310a450f345b056a87aeae9822bae43653982bd1056b19d41c75f81c81ee1e74c7c305c51670f589bee58067effb92e806bcbe36",
+          "sha256": "a166bbd5e849a56a5bdcd8359c37129390406723c6f7245b3134e48f4e1688dc",
+          "sha1": "6e79010a65f98433a6d1d220f1ac4be58bed6261",
+          "md5": "810a473fb785c8f584bb5308bd74b115"
+        }
+      ]
+    },
+    {
+      "name": "releaseRuntimeElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "dependencies": [
+        {
+          "group": "androidx.appcompat",
+          "module": "appcompat",
+          "version": {
+            "requires": "1.7.0"
+          }
+        },
+        {
+          "group": "androidx.browser",
+          "module": "browser",
+          "version": {
+            "requires": "1.8.0"
+          }
+        },
+        {
+          "group": "androidx.core",
+          "module": "core-ktx",
+          "version": {
+            "requires": "1.13.1"
+          }
+        },
+        {
+          "group": "androidx.lifecycle",
+          "module": "lifecycle-livedata-ktx",
+          "version": {
+            "requires": "2.8.3"
+          }
+        },
+        {
+          "group": "androidx.lifecycle",
+          "module": "lifecycle-viewmodel-ktx",
+          "version": {
+            "requires": "2.8.3"
+          }
+        },
+        {
+          "group": "com.google.android.material",
+          "module": "material",
+          "version": {
+            "requires": "1.12.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-jdk8",
+          "version": {
+            "requires": "1.8.22"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "virtusize-auth-1.0.5.aar",
+          "url": "virtusize-auth-1.0.5.aar",
+          "size": 41185,
+          "sha512": "4bd532056163fb43e9031209310a450f345b056a87aeae9822bae43653982bd1056b19d41c75f81c81ee1e74c7c305c51670f589bee58067effb92e806bcbe36",
+          "sha256": "a166bbd5e849a56a5bdcd8359c37129390406723c6f7245b3134e48f4e1688dc",
+          "sha1": "6e79010a65f98433a6d1d220f1ac4be58bed6261",
+          "md5": "810a473fb785c8f584bb5308bd74b115"
+        }
+      ]
+    },
+    {
+      "name": "releaseSourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "files": [
+        {
+          "name": "virtusize-auth-1.0.5-sources.jar",
+          "url": "virtusize-auth-1.0.5-sources.jar",
+          "size": 28531,
+          "sha512": "a8a55aaaf6f6edeccbb8b34c8e20e56d7647fe49b95073befce49f0a87be6c9ee4fc904055b70e82b66ae8c72dd5420e09602cd808fc7f9edd443f3fd883d751",
+          "sha256": "5f553b2f4a96088d59aa5b305c4bef3abc8ea8a33f3183e46a9ddd88559dab92",
+          "sha1": "fb7a94ef782fe5b544906a655f5c7dc2af65c2ce",
+          "md5": "ee6782057e42c6db78b30c708f957590"
+        }
+      ]
+    }
+  ]
+}
