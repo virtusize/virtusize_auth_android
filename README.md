@@ -17,9 +17,9 @@ process for our [Virtusize Android Integration](https://github.com/virtusize/int
 
 ### 1. Installation
 
-1. In your *root* build.gradle file or settings.gradle, edit the `repositories` section to include the following:
+1. In your *root* build.gradle file or settings.gradle file, edit the `repositories` section to include the following:
 
-- Groovy
+- Groovy (build.gradle)
 
   ```groovy
   allprojects {
@@ -31,7 +31,7 @@ process for our [Virtusize Android Integration](https://github.com/virtusize/int
   }
   ```
 
-- Kotlin
+- Kotlin (settings.gradle.kts)
 
   ```kotlin
   dependencyResolutionManagement {
@@ -43,7 +43,7 @@ process for our [Virtusize Android Integration](https://github.com/virtusize/int
 
 2. In your *app* build.gradle file, edit the `dependencies` section to include the following:
 
-- Groovy
+- Groovy (build.gradle)
 
   ```groovy
   dependencies {
@@ -51,7 +51,7 @@ process for our [Virtusize Android Integration](https://github.com/virtusize/int
   }
   ```
 
-- Kotlin
+- Kotlin (build.gradle.kts)
 
   ```kotlin
   dependencies {
