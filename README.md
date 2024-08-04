@@ -2,9 +2,8 @@
 
 ## Description
 
-The Virtusize Auth SDK for Android is a closed-source library that handles the SNS authentication process for our [Virtusize Android Integration](https://github.com/virtusize/integration_android).
-
-
+The Virtusize Auth SDK for Android is a closed-source library that handles the SNS authentication
+process for our [Virtusize Android Integration](https://github.com/virtusize/integration_android).
 
 ## Requirements
 
@@ -14,57 +13,75 @@ The Virtusize Auth SDK for Android is a closed-source library that handles the S
 
 - Setup in AppCompatActivity
 
-
-
 ## Getting Started
 
 ### 1. Installation
 
-1. In your *root* build.gradle file, edit the `repositories` section to include the following:
+1. In your *root* build.gradle file or settings.gradle, edit the `repositories` section to include the following:
 
-```groovy
-allprojects {
-    repositories {
-        maven {
-            url "https://github.com/virtusize/virtusize_auth_android/raw/main"
-        }
-    }
-}
-```
+- Groovy
+
+  ```groovy
+  allprojects {
+      repositories {
+          maven {
+              url "https://github.com/virtusize/virtusize_auth_android/raw/main"
+          }
+      }
+  }
+  ```
+
+- Kotlin
+
+  ```kotlin
+  dependencyResolutionManagement {
+      repositories {
+          maven { url = uri("https://github.com/virtusize/virtusize_auth_android/raw/main") }
+      }
+  }
+  ```
 
 2. In your *app* build.gradle file, edit the `dependencies` section to include the following:
 
-```groovy
-dependencies {
-    implementation "com.virtusize.android:virtusize-auth:1.0.4"
-}
-```
+- Groovy
 
+  ```groovy
+  dependencies {
+      implementation "com.virtusize.android:virtusize-auth:1.0.5"
+  }
+  ```
 
+- Kotlin
+
+  ```kotlin
+  dependencies {
+      implementation("com.virtusize.android:virtusize-auth:1.0.5")
+  }
+  ```
 
 ### 2. Create a Custom URL Scheme for Virtusize SNS Auth
 
-The SNS authentication flow requires opening a Chrome Custom Tab, which will load a web page for the user to login with their SNS account. In order to return the login response from a Chrome Custom Tab to your app, a custom URL scheme must be defined inside the manifest.
+The SNS authentication flow requires opening a Chrome Custom Tab, which will load a web page for the
+user to login with their SNS account. In order to return the login response from a Chrome Custom Tab
+to your app, a custom URL scheme must be defined inside the manifest.
 
-Edit your `AndroidManifest.xml` file to include an intent filter and a `<data>` tag for the custom URL scheme.
+Edit your `AndroidManifest.xml` file to include an intent filter and a `<data>` tag for the custom
+URL scheme.
 
 ```xml
+
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.your-company.your-app">
-  
-    <activity
-        android:name="com.virtusize.android.auth.views.VitrusizeAuthActivity"
-        android:launchMode="singleTask"
-        android:exported="true">
+    package="com.your-company.your-app">
+
+    <activity android:name="com.virtusize.android.auth.views.VitrusizeAuthActivity"
+        android:launchMode="singleTask" android:exported="true">
         <intent-filter>
             <action android:name="android.intent.action.VIEW" />
-    
+
             <category android:name="android.intent.category.DEFAULT" />
             <category android:name="android.intent.category.BROWSABLE" />
-          
-            <data
-                android:host="sns-auth"
-                android:scheme="com.your-company.your-app.virtusize" />
+
+            <data android:host="sns-auth" android:scheme="com.your-company.your-app.virtusize" />
         </intent-filter>
     </activity>
 
@@ -74,10 +91,9 @@ Edit your `AndroidManifest.xml` file to include an intent filter and a `<data>` 
 **❗IMPORTANT**
 
 1. The URL host has to be `sns-auth`
-2. The URL scheme must begin with your app's package ID (com.your-company.your-app) and **end with .virtusize**
+2. The URL scheme must begin with your app's package ID (com.your-company.your-app) and **end with
+   .virtusize**
 3. The scheme which you define must use all **lowercase** letters
-
-
 
 ## Enable Virtusize SNS Login for your WebView app
 
@@ -87,7 +103,9 @@ Use either of the following methods to enable Virtusize SNS login
 
 ##### **Step 1: Replace your `WebView` with `VirtusizeWebView`**
 
-To enable users to sign up or log in with the web version of Virtusize integration in your webview, please replace your `WebView` with **`VirtusizeWebView`** in your Kotlin or Java file and XML file to fix and enable SNS login in Virtusize.
+To enable users to sign up or log in with the web version of Virtusize integration in your webview,
+please replace your `WebView` with **`VirtusizeWebView`** in your Kotlin or Java file and XML file
+to fix and enable SNS login in Virtusize.
 
 - Kotlin/Java
 
@@ -154,7 +172,6 @@ and
   }
   ```
 
-
 ### or
 
 ### Method 2: Use WebView
@@ -172,9 +189,10 @@ webView.settings.setSupportMultipleWindows(true)
 
 ```kotlin
 // Register the Virtusize SNS auth activity result launcher
-private val virtusizeSNSAuthLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-    VirtusizeAuth.handleVirtusizeSNSAuthResult(webView, result.resultCode, result.data)
-}
+private val virtusizeSNSAuthLauncher =
+    registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        VirtusizeAuth.handleVirtusizeSNSAuthResult(webView, result.resultCode, result.data)
+    }
 
 override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -200,7 +218,11 @@ override fun onCreate(savedInstanceState: Bundle?) {
             view.requestFocusNodeHref(message)
             val url = message.data.getString("url")
             val title = message.data.getString("title")
-            if (resultMsg.obj != null && resultMsg.obj is WebView.WebViewTransport && VirtusizeURLCheck.isLinkFromVirtusize(url, title)) {
+            if (resultMsg.obj != null && resultMsg.obj is WebView.WebViewTransport && VirtusizeURLCheck.isLinkFromVirtusize(
+                    url,
+                    title
+                )
+            ) {
                 val popupWebView = WebView(view.context)
                 popupWebView.settings.javaScriptEnabled = true
                 popupWebView.webViewClient = object : WebViewClient() {
@@ -229,7 +251,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
             }
 
             // The rest of your code ..... 
-          
+
             return super.onCreateWindow(view, dialog, userGesture, resultMsg)
         }
     }
