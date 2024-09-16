@@ -47,7 +47,7 @@ process for our [Virtusize Android Integration](https://github.com/virtusize/int
 
   ```groovy
   dependencies {
-      implementation "com.virtusize.android:virtusize-auth:1.0.5"
+      implementation "com.virtusize.android:virtusize-auth:1.0.6"
   }
   ```
 
@@ -55,7 +55,7 @@ process for our [Virtusize Android Integration](https://github.com/virtusize/int
 
   ```kotlin
   dependencies {
-      implementation("com.virtusize.android:virtusize-auth:1.0.5")
+      implementation("com.virtusize.android:virtusize-auth:1.0.6")
   }
   ```
 
@@ -218,20 +218,15 @@ override fun onCreate(savedInstanceState: Bundle?) {
             view.requestFocusNodeHref(message)
             val url = message.data.getString("url")
             val title = message.data.getString("title")
-            if (resultMsg.obj != null && resultMsg.obj is WebView.WebViewTransport && VirtusizeURLCheck.isLinkFromVirtusize(
-                    url,
-                    title
-                )
-            ) {
+            if (resultMsg.obj != null && resultMsg.obj is WebView.WebViewTransport && VirtusizeURLCheck.isLinkFromVirtusize(url, title)) {
                 val popupWebView = WebView(view.context)
                 popupWebView.settings.javaScriptEnabled = true
                 popupWebView.webViewClient = object : WebViewClient() {
                     override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
-                        if (VirtusizeURLCheck.isExternalLinkFromVirtusize(url)) {
-                            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-                            try {
-                                context.startActivity(intent)
-                            } finally {
+			if (VirtusizeURLCheck.isExternalLinkFromVirtusize(url)) {
+                            runCatching {
+                                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+                                startActivity(intent)
                                 return true
                             }
                         }
