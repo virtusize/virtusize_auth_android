@@ -47,7 +47,7 @@ process for our [Virtusize Android Integration](https://github.com/virtusize/int
 
   ```groovy
   dependencies {
-      implementation "com.virtusize.android:virtusize-auth:1.1.0"
+      implementation "com.virtusize.android:virtusize-auth:1.1.1"
   }
   ```
 
@@ -55,7 +55,7 @@ process for our [Virtusize Android Integration](https://github.com/virtusize/int
 
   ```kotlin
   dependencies {
-      implementation("com.virtusize.android:virtusize-auth:1.1.0")
+      implementation("com.virtusize.android:virtusize-auth:1.1.1")
   }
   ```
 
